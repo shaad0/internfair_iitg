@@ -1,0 +1,111 @@
+{% extends "recruiter/base1.html" %}
+
+{% load static %}
+<html lang="en">
+  <head>
+    <title>{% block title %}Recruiter Profile {% endblock %}</title>
+  </head>
+  <body>
+
+    {% block content %}
+    
+     <div class="row mb-3 justify-content-between">
+     <div class="col-md-5 pb-3  mx-5 pb-md-0 alert alert-primary" style="font-size: 1rem; width: fit-content; left:-30px">
+        Go to <a href="{% url 'recruiter:InternList' startup.id %}">Internship Statistics</a> to view student's application.
+      </div>
+        <div class="col-md-6 pb-4 pb-md-0 highlight">
+            Active Forms
+        </div>
+    </div>
+
+
+
+
+
+
+     <div class="container">
+           <div class="row d-none d-md-flex" id="table-head">
+               <div class="col-md-auto profile-userpic padding"><img src="https://www.htmlcsscolor.com/preview/128x128/FFFFFF.png" class="img-fluid"></div>
+               <div class="col-md">
+                 <div class="row light-text">
+                   <div class="col padding">PROFILE</div>
+                   <div class="col padding">STIPEND</div>
+                   <div class="col padding">LOCATION</div>
+                   <div class="col padding">APPLICANTS</div>
+                 </div>
+
+               </div>
+             </div>
+
+
+         {% for p in profiles %}
+             <div class="row align-items-center p-2 p-md-0 top" >
+             <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
+             <div class="col-auto col-md p-0 px-md-3 " data-target="#model{{p.id}}" data-toggle="modal">
+               <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
+
+
+                   <!--a href="#model{{ intern.id }}" data-toggle="modal"-->
+                     <div class="col-md-3 padding">{{ p.profile }}</div>
+                     <div class="col-md-3 padding">{{p.stipend}} INR</div>
+                     <div class="col-md-3 padding">{{p.location}}</div>
+                     <div class="col-md-3 padding">{{ p.Total_count }}</div>
+
+               </div>
+             </div>
+           </div>
+
+
+
+        <!-- Modal -->
+          <div class="modal fade" id="model{{p.id}}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <div class="title">
+                       {{ p.profile }}
+                    </div>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                  <div class="modal-body">
+                    <label for="question1" style="color:#416EA8!important;" >APPLICANTS</label>
+                    <p id="question1">{{ p.Applicant_count }}</p>
+                    <label for="question2" style="color:#416EA8!important;">SHORTLISTED</label>
+                    <p id="question2">{{ p.Shortlisted_count }}</p>
+                  </div>
+                <div class="modal-footer mx-auto">
+                  <a href="{% url 'recruiter:deactivate' p.id %}" type="button" class="btn btn-outline-primary "  >Deactivate form</a>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+         {% endfor %}
+         <br><br>
+     </div>
+
+    <style>
+    @media(max-width: 768px) {
+      .img-fluid{
+        width:25px !important;
+        height:25px !important;
+      }
+
+    @media(max-width: 270px) {
+      .img-fluid{
+        display:none
+      }
+  }
+  </style>
+
+
+
+    {% endblock %}
+
+
+  </body>
+  
+</html>

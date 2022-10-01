@@ -1,0 +1,145 @@
+
+{% load static %}
+
+<html>
+
+<body>
+      <form method="POST" action="{% url 'recruiter:form_submit' %}">
+                        {% csrf_token %}
+        <div class="modal fade " id="myModal"  role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                <div class="modal-content ">
+                     <h2 class="modal-header mx-auto">Internship Form</h2>
+                    <small class='mx-auto' id='error' style='color:red; display:none'>*All fields are required</small>
+                    <div class="modal-body">
+                    
+                        <div class="form-group">
+
+            
+                          
+                     
+                       <!----created new form ------------>
+
+
+                    <label for="question1" class="question" >PROFILE</label>
+                    <div class="form-group">
+                        <input type="text" maxlength='99' class="form-control" id="question1" onblur="check(this.value)" required name="PROFILE">
+                    </div>
+                    <label for="question2" class="question" >STIPEND</label>
+                    <div class="form-group">
+                        <input type="text" maxlength='60' class="form-control" id="question2" onblur="check(this.value)" required name="STIPEND">
+                    </div>
+                    <label for="question3"  class="question" >LOCATION</label>
+                    <div class="form-group">
+                        <input type="text" maxlength='100' class="form-control" id="question3" onblur="check(this.value)" required name="LOCATION">
+                    </div>
+                    <label for="question4" class="question" >ALLOWANCE</label>
+                    <div class="form-group">
+                        <input type="text" maxlength='150' class="form-control" id="question4" onblur="check(this.value)" required name="ALLOWANCE">
+                    </div>
+                    <label for="question5" class="question" >REMARKS</label>
+                    <div class="form-group">
+                        <input type="text" maxlength='50' class="form-control" id="question5" onblur="check(this.value)" required name="REMARKS">
+                    </div>
+
+                <div class="modal-footer mx-auto text-center" id='validate'>
+
+                  <button type="button" class="btn btn-outline-primary " onClick='validateForm()' >Validate</button>
+
+                </div>
+                
+
+                <div class="modal-footer mx-auto text-center" id='next' style='display:none'>
+
+
+                    <a class="btn btn-primary" href="#myModal2"   data-toggle='modal' data-dismiss="modal"  >Next</a>
+
+                  <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >Back</button>
+
+
+                </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="modal fade " id="myModal2"   >
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                    <div class="modal-content ">
+                            <h2 class="modal-header mx-auto">Internship Form</h2>
+
+                        <div class="modal-body">
+                            <div class="form-group">
+            <div class="">
+                <div style="padding: 5%;">
+                    <div style="text-align: center;">
+
+                    </div>
+
+                    <span class="sub-heading">Question for preliminary interview</span>
+                   
+                        <br>
+                        <span class="Qheading">Question 1</span>
+                        <input type="text" class="input" maxlength='150' name="Q1" value="Are you willing to start part-time internship from February (YES/NO)?">
+                        <br><br>
+                        <span class="Qheading">Question 2</span>
+                        <input type="text" class="input" maxlength='150' name="Q2" value="Are you willing to start internship from your summer break (YES/NO)?">
+                        <br><br>
+                        <span class="Qheading">Question 3</span>
+                        <input type="text" class="input" maxlength='150' name="Q3">
+                        <br><br>
+
+                    <br>
+                        <br>
+                    <div class="row align-items-center ">
+                        <div class="col-5 text-right"><a href="#myModal"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
+                        <div class="col-7 text-left"><input type="submit" class="Publish" value="Publish"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+ </form>
+
+   {% include  "recruiter/js.html" %}
+
+</body>
+
+<script>
+function validateForm() {
+  var isValid = true;
+  $('.form-control').each(function() {
+    if ( $(this).val() === '' )
+        isValid = false;
+  });
+  if(isValid){
+      var x = document.getElementById("validate");
+      x.style.display = "none";
+      var modal = document.getElementById("next");
+      modal.style.display = "block";
+  }
+  else{
+      var modal = document.getElementById("error");
+      modal.style.display = "block";
+  }
+}
+
+
+</script>
+</html>

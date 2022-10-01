@@ -1,0 +1,62 @@
+
+{% load static %}
+
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'css/CompanyDetailsCard.css' %}">-->
+<!--     <link rel="stylesheet" href="{% static 'css/theme_config.css' %}" >-->
+
+<!--     <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+
+
+</head>
+
+    <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+
+    <title>Document</title>
+
+
+<!--     <button data-toggle="modal" data-target="#try2" type="button">here</button>-->
+    <div class="modal fade " id="try2"  role="dialog" >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                <div class="modal-content ">
+                     <h2 class="modal-header mx-auto">Internship Form</h2>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+        <div class="quesCard">
+            <div style="padding: 5%;">
+                <div style="text-align: center;">
+                    <span class="heading">Internship Form</span><br><br>
+                </div>
+
+                <span class="sub-heading">Question for preliminary interview</span>
+                <form action="">
+                    <br>
+                    <span class="Qheading">Question 1</span>
+                    <input type="text" class="input" value="Are you willing to start part-time internship from February (YES/NO)?">
+                    <br><br>
+                    <span class="Qheading">Question 2</span>
+                    <input type="text" class="input" value="Are you willing to start internship from your summer break (YES/NO)?">
+                    <br><br>
+                    <span class="Qheading">Question 3</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <button class="addQues">Add More Questions</button>
+                </form>
+                <br>
+                <div class="row align-items-center ">
+                    <div class="col-5 text-right"><a href="#try"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
+                    <div class="col-7 text-left"><button class="Publish">Publish</button></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% include  "recruiter/js.html" %}
+

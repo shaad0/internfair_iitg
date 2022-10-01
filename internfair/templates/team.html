@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+    <title>Team WebOps</title>
+    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/team.css' %}">
+
+</head>
+<body>
+    <div class="main">
+        <nav class="navbar navbar-edit navbar-expand-lg navbar-light bg-light" style="padding: 1vh 8vw; box-shadow: 0px 2px 8px rgba(72, 74, 82, 0.08); background-color: #FFFFFF !important">
+            <a class="brand" href="{% url 'index' %}" id="brand">Intern Fair</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse drop-menu" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="menu-item">
+                    <a href="{% url 'index' %}" class="nav-menu" style="margin-right: 8vw;">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a  href="{% url 'contact' %}" target="_blank" class="nav-menu activa">Contact Us</a>
+                </li>
+              </ul>          
+            </div>
+          </nav>
+        <div style='height:18vh'>
+
+        </div>
+        <div class="back">
+            <div class="col-12 text-center">
+                <span class="main-heading">Team WebOps <br>E-Cell IIT Guwahati</span>
+            </div>
+            <br><br>
+            <div class="col-12 text-center">
+                <span class="heading">Team Backend & Frontend</span>
+            </div><br>
+            <div class="text-center row">
+                <div class="namex col-6">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/thisissaraf">Ankit Saraf</a>
+                    
+                </div><br>
+                <div class="namex col-6">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/yashwardhan-singh-sisodia-367a191a6/">Yashwardhan Singh</a>
+                </div><br>
+                <div class="namex col-6">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/manish-prajapati-9970641a0/">Manish Prajapati</a>
+                </div><br>
+                <div class="namex col-6">
+                    <a target="_blank" class="a" href=" https://www.linkedin.com/in/vedant-chourasia-a5b99a196">Vedant Chourasia</a>
+                </div><br>
+            </div>
+            <br><br>
+            <div class="col text-center">
+                <span class="heading">Team Frontend</span>
+            </div><br>
+            <div class="row" >
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/s07/">Snigdha Jain</a>
+                </div>
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/shashank-raj-98923118b">Shashank Raj</a>
+                </div>
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/mwlite/in/soumya-10a">Soumya Gupta</a>
+                </div>
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/ayush-aggarwal-a6ba6b192/">Ayush Aggarwal</a>
+                </div>
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/ritu-patil-00b71a194">Ritu Patil</a>
+                </div>
+                <div class="col-4 text-center" style="padding-bottom: 20px;">
+                    <a target="_blank" class="a" href="https://www.linkedin.com/in/shyam-amipara-71591a194/">Shyam Amipara</a>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+      
+             
+            
+
+      
+</body>
+</html>

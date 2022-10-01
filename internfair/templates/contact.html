@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-edit navbar-expand-lg navbar-light bg-light" style="padding: 1vh 8vw; box-shadow: 0px 2px 8px rgba(72, 74, 82, 0.08); background-color: #FFFFFF !important">
+        <a class="brand" href="{% url 'index' %}" id="brand">Intern Fair</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse drop-menu" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="menu-item">
+                <a href="{% url 'index' %}" class="nav-menu" style="margin-right: 8vw;">Home</a>
+            </li>
+            <li class="menu-item">
+                <a  href="{% url 'contact' %}" class="nav-menu activa">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center" style="margin-top:5vh">
+            <div class="col-lg-5 order-lg-1 order-md-1 order-12 col-md-6 col-10 temp" style="padding-left:10vw;">
+                <span class="heading">Contact Us!</span><br><br>
+                <span class='name'>Email: <a href="mailto:internfair@udgam-iitg.in" style='color:#416EA8'>internfair@udgam-iitg.in</a><span>
+                <br><br>
+                <span class='sub-heading'>Technical Support</span><br><br>
+                <div class='row'>
+                    <div class="col-6 text-center">
+                        <a target="_blank" href='https://www.linkedin.com/in/thisissaraf'><img class='profilePic' src="{% static 'image/ankit.jpeg'%}"></img></a><br>
+                        <span class='name' >Ankit Saraf</span><br>
+                        <small class='font'>Senior Executive, Intern Fair</small><br>
+                        <span class='font'>8384964425<span>
+                    </div>
+                    <div class="col-6 text-center">
+                        <a target="_blank" href='https://www.linkedin.com/in/manish-prajapati-9970641a0/'><img class='profilePic' src="{% static 'image/manish.jpeg'%}"></img></a>
+                        <br>
+                        <span class='name' >Manish Prajapati</span><br>
+                        <small class='font'>Senior Executive, Intern Fair</small><br>
+                        <span class='font'>9695588169<span>
+                    </div>
+
+                </div>
+                <br><br>
+                <span class='sub-heading'>Other Support</span><br><br>
+                <div class='row'>
+                    <div class="col-6 text-center">
+                        <a target="_blank" href='https://www.linkedin.com/in/janvikale'><img class='profilePic' src="{% static 'image/janvi.jpeg'%}"></img></a>
+                        <br>
+                        <span class='name' >Janvi Kale</span><br>
+                        <small class='font'>Senior Executive, Intern Fair</small><br>
+                        <span class='font'>8070550101<span>
+                    </div>
+                    <div class="col-6 text-center">
+                        <a target="_blank" href='https://www.linkedin.com/in/shashank-raj-98923118b'><img class='profilePic' src="{% static 'image/shashank.jpeg'%}"></img></a>
+                        <br>
+                        <span class='name' >Shashank Raj</span><br>
+                        <small class='font'>Senior Executive, Intern Fair</small><br>
+                        <span class='font'>8011823071<span>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="col-lg-7 order-lg-2 order-md-2 order-1 text-center col-md-6 col-12" id="intro"  >
+                <img class="sideImg" src="{% static 'image/sideImg.png' %}" alt="">
+
+            </div>
+       </div>
+      </div>
+
+
+
+
+</body>
+</html>

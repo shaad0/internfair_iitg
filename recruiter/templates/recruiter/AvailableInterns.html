@@ -1,0 +1,150 @@
+{% extends "recruiter/base1.html" %}
+
+{% load static %}
+
+<html>
+<head>
+  <title>{% block title %} Available Interns {% endblock %} </title>
+</head>
+
+<body>
+
+{% block content  %}
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
+
+  <div class="row mb-3 justify-content-between">
+  <div class="col-md-12 col-lg-7 pb-3  mx-5 pb-md-0 alert alert-primary" style="font-size: 1rem; left:-30px">
+        <b>NOTE:</b>
+        <ul>
+          <li>Summer break of first yearites: 5 weeks (From June 3rd week)</li>
+          <li>Summer break of second yearites: 3 months (From May)</li>
+        </ul>
+      </div>
+    <div class="col-md-8 pb-4 ml-sm-5 pb-md-0 highlight">
+      <a  href="#" >Available Interns |</a>
+      <a class=" light-text"   href="{% url 'recruiter:shortlistedInterns' %}" >Shortlisted Interns</a>
+    </div>
+  </div>
+
+
+
+  <div class="row d-none d-md-flex" id="table-head">
+      <div class="col-md-auto profile-userpic padding"><img src="https://www.htmlcsscolor.com/preview/128x128/FFFFFF.png" class="img-fluid"></div>
+      <div class="col-md">
+        <div class="row light-text">
+          <div class="col padding">NAME</div>
+          <div class="col padding">PROFILE</div>
+          <div class="col padding">DEPARTMENT</div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    {% for intern in app %}
+      <div class="row p-2 p-md-0 top" >
+      <div class="col-3 col-md-auto  padding pt-3 mx-3 m-md-0">
+<!--          <img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid">-->
+      <svg data-jdenticon-value="user127{{intern.id }}" width="30" height="30">
+        Fallback text or image for browsers not supporting inline svg.
+      </svg>
+      </div>
+      <div class="col-auto col-md p-0 px-md-3 " data-target="#model{{ intern.id }}" data-toggle="modal">
+        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
+
+
+            <!--a href="#model{{ intern.id }}" data-toggle="modal"-->
+              <div class="col-md-4 padding">{{ intern.Intern.name }}</div>
+
+              <div class="col-md-4 padding">{{ intern.Internship.profile }}</div>
+              <div class="col-md-4 padding">{{ intern.Intern.department }}</div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!------------------------------------------modal for internanswercard --------------------------------->
+
+
+
+
+     <div class="modal fade  " id="model2{{ intern.id }}">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+        <div class="modal-content border">
+            <h3 class="modal-title pl-4 pt-4"><b>{{ intern.Intern.name }}</b></h3>
+          <div class="modal-body">
+              {% for key,value in intern.count_intern_Answers.items %}
+              <p> <h7  style="color:#416EA8!important;"> Q : {{ key }}</h7><br>
+                  <h7 >{{ value }}</h7></p>
+              {% endfor %}
+
+
+
+          <div class="pb-1 mx-1 ">
+
+                <a href='#model{{ intern.id }}' class='btn mx-2 px-5 my-2 btn-outline-primary border-lg ' data-toggle='modal' data-dismiss="modal" >View profile</a>
+                <a href="{% url 'recruiter:shortlistedInterns' intern.id %}" class='btn mx-2 px-5 my-2 btn-primary border-lg '>Shortlist</a>
+
+          </div>
+
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+    <!-------------------------intern profile card ------------------------------------------------------------------->
+
+
+
+     <div class="modal fade  " id="model{{ intern.id }}">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+        <div class="modal-content border">
+
+          <h3 class="modal-title pl-3 pt-3 "><b>{{ intern.Intern.name }}</b></h3>
+          <div class="modal-body">
+
+
+              <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
+<!--                <img src="{% static 'image/test_image_ecell.jpg' %}" class="rounded-circle img-fluid" alt="">-->
+               <svg data-jdenticon-value="user127{{intern.id }}" width="80" height="80"></svg>
+
+              </div>
+
+
+              <p><h7 style="color:#416EA8!important;">DEPARTMENT</h7><br>{{ intern.Intern.department }}</p>
+              <p><h7 style="color:#416EA8!important;">ROLL NO.</h7><br>{{ intern.Intern.roll_number }}</p>
+
+              {% if intern.Intern.roll_number|slice:":2" == "20" %}
+                <p><h7 style="color:#416EA8!important;">YEAR OF STUDY</h7><br>First</p>
+              {% elif  intern.Intern.roll_number|slice:":2" == "19" %}
+                <p><h7 style="color:#416EA8!important;">YEAR OF STUDY</h7><br>Second</p>
+              {% elif  intern.Intern.roll_number|slice:":2" == "18" %}
+                <p><h7 style="color:#416EA8!important;">YEAR OF STUDY</h7><br>Third</p>
+              {% endif %}
+              <p><h7 style="color:#416EA8!important;">CV</h7><br><a href="{{ intern.CV }} " target="_blank" style='border: 1px solid #416EA8; padding: 4px; border-radius:3px' >Student CV</a></p>
+
+            <div class="pb-3 mx-2 ">
+
+                <a href='#model2{{ intern.id }}' class= 'btn px-3 mx-3 my-2 btn-outline-primary border-lg' data-dismiss='modal' data-toggle="modal">View Answers to form</a>
+                <a href="{% url 'recruiter:shortlistedInterns' intern.id %}" class='btn  mx-3 px-5 my-2 btn-primary border-lg '>Shortlist</a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+     </div>
+
+    {% endfor %}
+    <br><br>
+ {% endblock %}
+
+<!---------------------------------------------------------------->
+
+
+
+</body>
+</html>
